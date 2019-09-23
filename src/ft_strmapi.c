@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unicolle <unicolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 02:10:31 by unicolle          #+#    #+#             */
-/*   Updated: 2019/09/21 02:18:56 by unicolle         ###   ########.fr       */
+/*   Created: 2019/09/22 22:54:15 by unicolle          #+#    #+#             */
+/*   Updated: 2019/09/22 23:16:28 by unicolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*mem;
+	char	*str;
+	int		i;
 
-	if (!(mem = malloc(size)))
+	i = 0;
+	if (!(str = (char *)malloc(ft_strlen(s) + 1)))
 		return (NULL);
-	return (mem);
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
+		++i;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_arraydel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unicolle <unicolle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nalexand <nalexand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 00:32:20 by unicolle          #+#    #+#             */
-/*   Updated: 2019/09/21 01:22:03 by unicolle         ###   ########.fr       */
+/*   Created: 2019/09/23 02:26:26 by unicolle          #+#    #+#             */
+/*   Updated: 2019/09/23 02:46:39 by nalexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	**ft_arraydel(char ***array)
 {
-	unsigned char	*mem;
-	int				i;
-	unsigned char	symbol;
+	int		i;
 
-	symbol = (unsigned char)c;
-	mem = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		if (mem[i] = symbol)
-			return (&mem[i]);
-		++i;
-	}
-	return (NULL);
+	while (*array[i])
+		free(*array[i++]);
+	free(*array);
+	*array = NULL;
+	return (*array);
 }

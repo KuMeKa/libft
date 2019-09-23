@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unicolle <unicolle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nalexand <nalexand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/15 18:43:51 by unicolle          #+#    #+#             */
-/*   Updated: 2019/09/21 02:09:19 by unicolle         ###   ########.fr       */
+/*   Created: 2019/09/22 23:46:39 by unicolle          #+#    #+#             */
+/*   Updated: 2019/09/23 02:46:39 by nalexand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	while (haystack[i])
-	{
-		while (haystack[i] == needle[j] && j < len)
-		{
-			++i;
-			++j;
-		}
-		if (j == len)
-			return (&haystack[i - j]);
-		j = 0;
-		++i;
-	}
-	return (NULL);
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+		return (NULL);
+	while (*s1)
+		str[i++] = *(s1++);
+	while (*s2)
+		str[i++] = *(s2++);
+	str[i] = '\0';
+	return (str);
 }

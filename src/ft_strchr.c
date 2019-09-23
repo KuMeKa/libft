@@ -6,7 +6,7 @@
 /*   By: unicolle <unicolle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 18:43:11 by unicolle          #+#    #+#             */
-/*   Updated: 2019/09/21 02:08:31 by unicolle         ###   ########.fr       */
+/*   Updated: 2019/09/22 22:36:00 by unicolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == symbol)
-			return (&s[i]);
+			return ((char *)&s[i]);
 		++i;
 	}
 	if (symbol == '\0')
-		return (&s[i + 1]);
+		return ((char *)&s[i + 1]);
 	return (NULL);
 }
